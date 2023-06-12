@@ -14,4 +14,4 @@ func _physics_process(delta):
 		velocity.x = speed
 	if Input.is_action_pressed("move left"):
 		velocity.y = -speed
-	move_and_slide()
+	#move_and_slide()
