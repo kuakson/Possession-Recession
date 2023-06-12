@@ -6,3 +6,6 @@
 
 [node name="Player" parent="." instance=ExtResource("1_hjn7e")]
 position = Vector2(583, 295)
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
