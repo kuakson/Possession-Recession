@@ -22,6 +22,7 @@ height = 126.0
 sprite_frames = SubResource("SpriteFrames_1kfgq")
 animation = &"idle"
 script = ExtResource("2_yusyk")
+speed = null
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 gravity_scale = -128.0
