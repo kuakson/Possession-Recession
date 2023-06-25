@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://dh1wlvnmr0o8d"]
+
+[ext_resource type="Script" path="res://base_enemy.gd" id="1_k5dqs"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k6q3o"]
+radius = 8.0
+height = 32.34
+
+[sub_resource type="Gradient" id="Gradient_7debb"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.0631579, 0.175439, 0.192982, 0.484211, 0.659649, 0.838596, 0.933333)
+colors = PackedColorArray(0.221373, 0.613643, 0.424296, 1, 0.221373, 0.613643, 0.424296, 1, 0.446554, 0.378258, 0.0815349, 1, 0.446554, 0.378258, 0.0815349, 1, 0.0800996, 0.292415, 0.468193, 1, 0.0685038, 0.296748, 0.455371, 1, 0.221373, 0.613643, 0.424296, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_olxmw"]
+gradient = SubResource("Gradient_7debb")
+width = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ktcgc"]
+bg_color = Color(0.145098, 0.145098, 0.145098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bwl6n"]
+bg_color = Color(0.72549, 0.196078, 0.14902, 1)
+
+[node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
+position = Vector2(526, 325)
+script = ExtResource("1_k5dqs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_k6q3o")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = 1.5708
+scale = Vector2(3.5, 12)
+texture = SubResource("GradientTexture1D_olxmw")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -17.0
+offset_top = -29.0
+offset_right = 81.0
+offset_bottom = -2.0
+scale = Vector2(0.349381, 0.29176)
+theme_override_styles/background = SubResource("StyleBoxFlat_ktcgc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bwl6n")
+max_value = 3.0
+step = 1.0
+value = 1.0
+rounded = true
+show_percentage = false
