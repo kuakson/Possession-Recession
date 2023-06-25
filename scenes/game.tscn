@@ -424,4 +424,6 @@ layer_3/tile_data = PackedInt32Array()
 position = Vector2(750, 336)
 
 [node name="Player" parent="." instance=ExtResource("1_hjn7e")]
-position = Vector2(390, 303)
+position = Vector2(593, 295)
+speed = 30
+dashSpeed = 100
