@@ -1,11 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://cgo76wsfg1r8f"]
+[gd_scene load_steps=4 format=3 uid="uid://cgo76wsfg1r8f"]
 
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_3mni2"]
 [ext_resource type="PackedScene" uid="uid://bgnsix1mdxexq" path="res://scenes/player.tscn" id="1_hjn7e"]
 
-[node name="Game" type="Node2D"]
+[sub_resource type="CanvasTexture" id="CanvasTexture_75acw"]
+specular_color = Color(0.92549, 0.105882, 1, 1)
 
-[node name="Player" parent="." instance=ExtResource("1_hjn7e")]
-position = Vector2(583, 295)
+[node name="Game" type="Node2D"]
+script = ExtResource("1_3mni2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(587, 290)
+scale = Vector2(550.5, 213.5)
+texture = SubResource("CanvasTexture_75acw")
 
 [node name="TileMap" type="TileMap" parent="."]
 format = 2
+
+[node name="Player" parent="." instance=ExtResource("1_hjn7e")]
+position = Vector2(597, 276)
