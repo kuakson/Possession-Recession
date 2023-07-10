@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var max_hp = 1
 @export var hp = 1
-@export var move_speed = 15 #pixels
+@export var move_speed = 8 #pixels
 @export var death_effect: Callable
 
 enum state {FOLLOW, DIE, SHAMBLE} 

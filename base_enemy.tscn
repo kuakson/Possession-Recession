@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://base_enemy.gd" id="1_k5dqs"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k6q3o"]
-radius = 4.0
-height = 18.0
+radius = 3.0
+height = 12.0
 
 [sub_resource type="Gradient" id="Gradient_7debb"]
 interpolation_mode = 1
@@ -31,15 +31,15 @@ shape = SubResource("CapsuleShape2D_k6q3o")
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
 rotation = 1.5708
-scale = Vector2(2, 6.857)
+scale = Vector2(1.25, 4.286)
 texture = SubResource("GradientTexture1D_olxmw")
 
 [node name="HealthBar" type="ProgressBar" parent="."]
-offset_left = -10.0
-offset_top = -18.0
-offset_right = 47.0
-offset_bottom = -1.0
-scale = Vector2(0.349381, 0.29176)
+offset_left = -6.0
+offset_top = -12.0
+offset_right = 57.0
+offset_bottom = 5.0
+scale = Vector2(0.189434, 0.163281)
 theme_override_styles/background = SubResource("StyleBoxFlat_ktcgc")
 theme_override_styles/fill = SubResource("StyleBoxFlat_bwl6n")
 max_value = 3.0
