@@ -71,6 +71,10 @@ restart={
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Enemies"
 2d_physics/layer_3="Projectiles"
+2d_physics/layer_4="Floor Obstacles"
+2d_physics/layer_5="Ground Obstackles"
+2d_physics/layer_6="Air Obstacles"
+2d_physics/layer_7="Wall Obstacles"
 
 [physics]
 

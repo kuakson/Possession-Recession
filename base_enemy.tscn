@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dh1wlvnmr0o8d"]
+[gd_scene load_steps=8 format=3 uid="uid://dh1wlvnmr0o8d"]
 
 [ext_resource type="Script" path="res://base_enemy.gd" id="1_k5dqs"]
 
@@ -21,8 +21,12 @@ bg_color = Color(0.145098, 0.145098, 0.145098, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bwl6n"]
 bg_color = Color(0.72549, 0.196078, 0.14902, 1)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_hvnvy"]
+radius = 36.0139
+
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
 position = Vector2(526, 325)
+collision_mask = 88
 script = ExtResource("1_k5dqs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -50,3 +54,25 @@ show_percentage = false
 
 [node name="ShambleTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+
+[node name="ChaseArea" type="Area2D" parent="."]
+
+[node name="ChaseShape" type="CollisionShape2D" parent="ChaseArea"]
+shape = SubResource("CircleShape2D_hvnvy")
+
+[node name="MeleeArea" type="Area2D" parent="."]
+visible = false
+
+[node name="MeleeShape" type="CollisionShape2D" parent="MeleeArea"]
+shape = SubResource("CircleShape2D_hvnvy")
+
+[node name="RangedShape" type="Area2D" parent="."]
+visible = false
+
+[node name="RangedShape" type="CollisionShape2D" parent="RangedShape"]
+shape = SubResource("CircleShape2D_hvnvy")
+
+[connection signal="body_entered" from="ChaseArea" to="." method="_on_chase_area_body_entered"]
+[connection signal="body_exited" from="ChaseArea" to="." method="_on_chase_area_body_exited"]
