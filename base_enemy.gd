@@ -6,15 +6,15 @@ extends CharacterBody2D
 @export var death_effect: Callable
 
 @export_category("Ranges")
-@export var chase_range = 36 #circle radius in pixels
-@export var melee_range = 15 #circle radius in pixels
-@export var ranged_range= 50 #circle radius in pixels
+@export var chase_range = 50 #circle radius in pixels
+@export var melee_range = 20 #circle radius in pixels
+@export var ranged_range= 150 #circle radius in pixels
 
 enum state {CHASE, DIE, SHAMBLE} 
 
 var State = state.SHAMBLE
 var Target: Node2D # The target the current enemy focuses on. determines what will be chased, attacked, etc.
-
+var target_in_range_melee = false
 
 func _ready():
 	$HealthBar.max_value = max_hp
@@ -85,3 +85,8 @@ func _on_chase_area_body_exited(body):
 	if body.is_in_group("player"): # If the player entered the chase area
 		print("Change state to Shamble")
 		State = state.SHAMBLE
+		
+func attack():
+	#Target.take_damage
+	print("Attacking %s" % Target.name)
+	pass
