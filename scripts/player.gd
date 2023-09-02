@@ -4,25 +4,12 @@ extends CharacterBody2D
 @export var speed = 300
 @export var dashSpeed = 1000
 @export var dashDuration = 0.5
-@export var isGhost = true
 
 var dashTimer = 0
 var dashDirection = Vector2.ZERO
-
-
-func setGhost(value: bool):
-	
-	if value == true:
-		isGhost = true
-		
-		get_collision_mask()
-		set_collision_mask_value(1, false)
-	else:
-		isGhost = false
-		set_collision_mask_value(1, true)
-		
+ 
 func _physics_process(delta):
-
+	#movement
 	var direction = Input.get_vector("move left", "move right", "move up", "move down").normalized()
 	if direction:
 		velocity = direction * speed
@@ -52,15 +39,6 @@ func possession(): #RMB
 	var playerPosition = global_position
 	dashDirection = (mousePosition - playerPosition).normalized()
 	dashTimer = dashDuration
-	setGhost(true)
    
 func attack(): #LMB
 	print("I'm attacking")
-	
-	
-func take_damage(damage):
-	print("It's just a flesh wound!")
-#func switchCollision():
-	#some code to turn on collision while possessing
-	#if !isGhost:
-		#set_collision_layer_value(4, true)
